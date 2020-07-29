@@ -1,0 +1,96 @@
+a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+button a {
+	color: black;
+}
+
+li {
+	list-style-type: none;
+}
+
+li a:hover {
+	color: gray;
+}
+li a {
+	color: white;
+}
+ul {
+	display: flex;
+	justify-content: space-around;
+}
+.social {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+}
+.image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+footer img {
+	width: 180px;
+	height: 80px;
+}
+a img {
+	width: 150px
+}
+footer {
+	background-color: #89befe;
+	width: 100%;
+	height: 100px;
+}
+.navbar-light {
+	background-color: #89befe!important;
+}
+
+#page {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 150px;
+}
+article {
+	width: 250px;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 20px;
+}
+article img {
+	width: 200px;
+	height: 135px;
+	margin-bottom: 10px;
+}
+p {
+	text-align: center;
+}
+
+section img {
+	width: 200px;
+}
+
+section {
+	width: 500px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#main {
+	height: 600px;
+}
+
+body {
+	height: 100%;
+}
