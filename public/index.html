@@ -14,15 +14,53 @@
   
   
   	<body>
+  	<div id="container" >
 		<header>
 			<nav class="navbar navbar-light">
 				<a href="index.html"><img src="/images/logoOrinoco.png" alt="logo orinoco"></a>
-				<button type="button" class="btn btn-outline-primary"><a href="panier.html">Mon panier</a></button>
+				<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Mon panier</button>
+				<!-- Button trigger modal -->
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Mes articles</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+					  </div>
+					  <div class="modal-body">
+						<section id="tableauPanier">
+							<table class="table">
+								<thead>
+									<tr>
+									  <th scope="col">Article</th>
+									  <th scope="col">Quantité</th>
+									</tr>
+								</thead>
+								<tbody id="afficheProduitPanier">
+									<!-- Partie panier pour l'affichage -->
+								</tbody>
+							</table>
+							<div id="affichageTotal">
+
+							</div>
+						</section>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+						<button type="button" class="btn btn-primary"><a href="panier.html">Aller dans le panier</a></button>
+					  </div>
+					</div>
+				  </div>
+				</div>
 			</nav>
 		</header>
 		<main id=page>
 			
 		</main>
+		</div>
   
 		<footer>				
 			<div class="row row-no-gutters social">
@@ -39,6 +77,12 @@
 				</div>
 			</div>
 		</footer>
+		
+		
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   	</body>
   
   

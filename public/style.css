@@ -44,9 +44,12 @@ footer {
 	background-color: #89befe;
 	width: 100%;
 	height: 100px;
+	position: fixed;
+	bottom: 0;
 }
 .navbar-light {
 	background-color: #89befe!important;
+	margin-bottom: 50px;
 }
 
 #page {
@@ -93,4 +96,16 @@ section {
 
 body {
 	height: 100%;
+}
+
+.modal-body table {
+	width: 430px;
+}
+.modal-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#container {
+	padding-bottom: 120px;
 }

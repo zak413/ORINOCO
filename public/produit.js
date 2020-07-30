@@ -1,3 +1,5 @@
+
+
 let params = new URLSearchParams(document.location.search)
 let id = params.get("id")
 console.log("Il a selectionné " +id)
@@ -13,6 +15,8 @@ request.onreadystatechange = function () {
 request.open("GET", "http://localhost:3000/api/cameras/" + id)
 request.send()
 
+
+// Fonction pour afficher mon produit
 function affichageProduit() {
 
     console.log("Le nom du produit est " +camera.name)
@@ -27,24 +31,21 @@ function affichageProduit() {
     image.src = camera.imageUrl
 };
 
- const retour_accueil = document.getElementById("btn-accueil")
+// Boutton retour à la page d'accueil
+const retour_accueil = document.getElementById("btn-accueil")
     retour_accueil.textContent = "Retour à l'accueil"
     retour_accueil.addEventListener("click", function() {
         window.location.href = "index.html"
     })
 
-// selection du nombre de produit
+// Sélection du nombre de produit
 let nombreProduit = document.getElementById("nombreProduit").addEventListener('change', function (e) {
         nombreProduit = e.target.value
         console.log("Il en veut :" + e.target.value)
     })
 
-const voir_panier = document.getElementById("btn-panier")
-    voir_panier.textContent = "Mon panier"
-    voir_panier.addEventListener("click", function() {
-        window.location.href = "panier.html"
-    })
 
+// Boutton ajouter au panier
 const ajouter_panier = document.getElementById("btn-ajouter")
         ajouter_panier.textContent = "Ajouter au panier"
         ajouter_panier.addEventListener("click", function() {
@@ -61,7 +62,7 @@ const ajouter_panier = document.getElementById("btn-ajouter")
 
 
 
-//j'enregistre le prix total dans sessionstorage pour le proposer dans la page panier et commande
+// On enregistre le prix total dans sessionstorage pour le proposer dans la page panier et commande
 function prixTotal(){
     let price = parseInt(camera.price);
     let prixDuPanier = JSON.parse(sessionStorage.getItem('prixTotal'));
@@ -96,3 +97,60 @@ function ajoutSessionStorage(){
 }
 
 
+
+
+
+
+
+
+
+
+// Fonction pour afficher mon produit==============================================================================
+function affichagePanier() {
+    //je récupére mon produit dans session storage "panier"
+    var panier = JSON.parse(sessionStorage.getItem("panier"))
+    var prixTotal = JSON.parse(sessionStorage.getItem("prixTotal"))
+    var prixPanier = document.getElementById('affichageTotal')
+
+    let tableauPanier = document.getElementById("afficheProduitPanier")
+    
+    // Affichage du prix total du panier si :===================================================================
+    if (prixTotal != null) {
+        prixPanier.textContent = 'Le montant de votre commande est de : ' + prixTotal +  ' €';
+        prixPanier.id = 'prixTotal'; 
+        var div = document.createElement("div")
+        div.textContent = "Le panier est vide !"
+        afficheProduitPanier.appendChild(div)
+    } else  {
+        prixPanier.textContent = 'Le montant de votre commande est de : 0 €';
+    }
+
+    // Si il n'y a rien dans le panier, affiche "Le panier est vide !"
+    if ( panier == null) {
+        var div = document.createElement("div")
+        div.textContent = "Le panier est vide !"
+        afficheProduitPanier.appendChild(div)
+        console.log("Le panier est vide !")
+    } else {
+        // S'il y a un produit, on créer un tableau avec chaque article
+        tableauPanier.innerHTML = ''
+        Object.values(panier).map( (camera) => {
+            var tr = document.createElement("tr")
+            afficheProduitPanier.appendChild(tr)
+            
+            var name = document.createElement("td")
+            name.textContent = camera.name
+            tr.appendChild(name)
+
+            var quantite = document.createElement("td")
+            quantite.textContent = camera.quantity
+            tr.appendChild(quantite)
+
+
+
+            console.log("Voici le panier :")
+            console.log(panier)
+        })
+    }
+}
+affichagePanier()
