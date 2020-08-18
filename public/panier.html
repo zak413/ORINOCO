@@ -20,7 +20,7 @@
 			</nav>
 		</header>
 
-		<section id="main">
+		<section id="main" class="pagePanier">
         <h5>Votre Panier</h5>
         <section id="tableauPanier">
 
@@ -41,7 +41,7 @@
             </div>
             <button id="viderPanier" class="btn btn-danger">Vider le panier</button>
         </section>
-        <section>
+        <section id="formulaire">
 			<form class="needs-validation">
 			  <div class="form-row">
 				<div class="col-md-6 mb-3 form">
@@ -64,17 +64,9 @@
 				</div>
 				<div class="col-md-3 mb-4 form">
     			  <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
-      			  <input type="email" class="form-control" id="email" placeholder="Votre email">
+      			  <input type="email" class="form-control" id="email" placeholder="Votre email" required>
 				</div>
 
-			  </div>
-			  <div class="form-group">
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-				  <label class="form-check-label" for="invalidCheck">
-					J'accepte les termes et conditions de vente
-				  </label>
-				</div>
 			  </div>
 			  <button class="btn btn-primary commande" type="submit">Je commande</button>
 			</form>

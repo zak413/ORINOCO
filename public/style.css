@@ -92,6 +92,7 @@ section {
 
 #main {
 	height: 600px;
+	margin-bottom: 150px;
 }
 
 body {
@@ -108,4 +109,64 @@ body {
 }
 #container {
 	padding-bottom: 120px;
+}
+
+
+@media screen and (max-width: 767px) {
+	#page {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#camera {
+		width: 100%;
+	}
+	
+	#tableauPanier {
+		width: 100%;
+	}
+	
+	#tableauPanier .table {
+		width: 100%;
+	}
+	
+	#main {
+		height: auto;
+		width: 100%;
+		padding-bottom: 150px;
+	}
+	
+	footer {
+		width: 100%;
+	}
+	
+	section form {
+		width: 100%;
+	}
+	
+	#formulaire {
+		width: 100%;
+	}
+	
+	article {
+		margin: auto;
+	}
+	
+}
+
+@media (min-width: 747px) and (max-width: 1024px) {
+	
+	#page {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	article {
+		width: 500px;
+	}
+	
+	#camera {
+		width: 600px;
+	}
+	
 }
