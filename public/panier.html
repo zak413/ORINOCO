@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
- 
- 
+
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,26 +11,25 @@
 		<script defer src="panier.js"></script>
 		<title>Panier</title>
 	</head>
-  
-  
+
+
   	<body>
 		<header>
 			<nav class="navbar navbar-light">
 				<a href="index.html"><img src="/images/logoOrinoco.png" alt="logo orinoco"></a>
 			</nav>
 		</header>
-		
+
 		<section id="main">
         <h5>Votre Panier</h5>
         <section id="tableauPanier">
-            
+
             <table class="table table-dark">
 				<thead>
 					<tr>
 					  <th scope="col">Article</th>
 					  <th scope="col">Quantité</th>
 					  <th scope="col">Prix</th>
-					  <th scope="col">Supprimer</th>
 					</tr>
 				</thead>
            		<tbody id="afficheProduitPanier">
@@ -40,6 +39,7 @@
             <div id="affichageTotal">
 
             </div>
+            <button id="viderPanier" class="btn btn-danger">Vider le panier</button>
         </section>
         <section>
 			<form class="needs-validation">
@@ -66,7 +66,7 @@
     			  <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
       			  <input type="email" class="form-control" id="email" placeholder="Votre email">
 				</div>
-				
+
 			  </div>
 			  <div class="form-group">
 				<div class="form-check">
@@ -74,9 +74,6 @@
 				  <label class="form-check-label" for="invalidCheck">
 					J'accepte les termes et conditions de vente
 				  </label>
-				  <div class="invalid-feedback">
-					You must agree before submitting.
-				  </div>
 				</div>
 			  </div>
 			  <button class="btn btn-primary commande" type="submit">Je commande</button>
@@ -84,9 +81,9 @@
 		</section>
 
 		</section>
-		
-		
-		<footer>				
+
+
+		<footer>
 			<div class="row row-no-gutters social">
 				<div class="col-sm-6 image">
 					<img src="/images/logoOrinoco.png" alt="logo orinoco">
@@ -101,12 +98,12 @@
 				</div>
 			</div>
 		</footer>
-		
-		
-		
-		
+
+
+
+
   	</body>
-  
-  
-  
+
+
+
 </html>

@@ -1,7 +1,7 @@
 // Récapitulatif de commande
 function commande(){
-    let data = JSON.parse(sessionStorage.getItem('order'));
-    let prix = JSON.parse(sessionStorage.getItem('prix'));
+    let data = JSON.parse(localStorage.getItem('order'));
+    let prix = JSON.parse(localStorage.getItem('prix'));
     let conteneurRecap = document.getElementById("recapitulatif")
 
     const p1 = document.createElement("p")

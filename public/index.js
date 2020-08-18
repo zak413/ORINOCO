@@ -14,7 +14,7 @@ fetch(url)
             const p = document.createElement("p")
             const img = document.createElement("img")
             const lien = document.createElement("a")
-            
+
 
             const nom = document.createTextNode (name)
             const prix = document.createTextNode (price + " €")
@@ -37,7 +37,7 @@ fetch(url)
 
             lien.className = "btn btn-outline-primary"
             //console.log(_id)
-			
+
 			article.className = ("card")
         })
     })
@@ -51,17 +51,17 @@ fetch(url)
 
 // Fonction pour afficher mon produit==============================================================================
 function affichagePanier() {
-    //je récupére mon produit dans session storage "panier"
-    var panier = JSON.parse(sessionStorage.getItem("panier"))
-    var prixTotal = JSON.parse(sessionStorage.getItem("prixTotal"))
+    //je récupére mon produit dans local storage "panier"
+    var panier = JSON.parse(localStorage.getItem("panier"))
+    var prixTotal = JSON.parse(localStorage.getItem("prixTotal"))
     var prixPanier = document.getElementById('affichageTotal')
 
     let tableauPanier = document.getElementById("afficheProduitPanier")
-    
+
     // Affichage du prix total du panier si :===================================================================
     if (prixTotal != null) {
         prixPanier.textContent = 'Le montant de votre commande est de : ' + prixTotal +  ' €';
-        prixPanier.id = 'prixTotal'; 
+        prixPanier.id = 'prixTotal';
         var div = document.createElement("div")
         div.textContent = "Le panier est vide !"
         afficheProduitPanier.appendChild(div)
@@ -81,7 +81,7 @@ function affichagePanier() {
         Object.values(panier).map( (camera) => {
             var tr = document.createElement("tr")
             afficheProduitPanier.appendChild(tr)
-            
+
             var name = document.createElement("td")
             name.textContent = camera.name
             tr.appendChild(name)

@@ -50,11 +50,12 @@ const ajouter_panier = document.getElementById("btn-ajouter")
         ajouter_panier.textContent = "Ajouter au panier"
         ajouter_panier.addEventListener("click", function() {
             if(nombreProduit != undefined){
-                alert("Tu ajoute "+ nombreProduit +" au panier.")
+                alert("Tu ajoutes "+ nombreProduit +" au panier.")
                 console.log("Il ajoute "+ nombreProduit + " " + camera.name + " au panier.")
                 camera.quantity = nombreProduit
                 prixTotal()
-                ajoutSessionStorage()
+                ajoutLocalStorage()
+                document.location.reload(true);
             } else {
                 alert("Veuillez selectionner un nombre.")
             }
@@ -62,21 +63,21 @@ const ajouter_panier = document.getElementById("btn-ajouter")
 
 
 
-// On enregistre le prix total dans sessionstorage pour le proposer dans la page panier et commande
+// On enregistre le prix total dans local storage pour le proposer dans la page panier et commande
 function prixTotal(){
     let price = parseInt(camera.price);
-    let prixDuPanier = JSON.parse(sessionStorage.getItem('prixTotal'));
-    
+    let prixDuPanier = JSON.parse(localStorage.getItem('prixTotal'));
+
     if(prixDuPanier != null){
-        sessionStorage.setItem("prixTotal", prixDuPanier + (price * camera.quantity));
+        localStorage.setItem("prixTotal", prixDuPanier + (price * camera.quantity));
     } else {
-        sessionStorage.setItem("prixTotal", price * camera.quantity);
+        localStorage.setItem("prixTotal", price * camera.quantity);
     }
 
 }
 
-function ajoutSessionStorage(){
-    let panier = sessionStorage.getItem('panier');
+function ajoutLocalStorage(){
+    let panier = localStorage.getItem('panier');
     panier = JSON.parse(panier);
 
     let name = camera.name;
@@ -93,31 +94,24 @@ function ajoutSessionStorage(){
         panier = {[name] : camera}
 
     }
-    sessionStorage.setItem("panier", JSON.stringify(panier));
+    localStorage.setItem("panier", JSON.stringify(panier));
 }
-
-
-
-
-
-
-
 
 
 
 // Fonction pour afficher mon produit==============================================================================
 function affichagePanier() {
-    //je récupére mon produit dans session storage "panier"
-    var panier = JSON.parse(sessionStorage.getItem("panier"))
-    var prixTotal = JSON.parse(sessionStorage.getItem("prixTotal"))
+    //je récupére mon produit dans local storage "panier"
+    var panier = JSON.parse(localStorage.getItem("panier"))
+    var prixTotal = JSON.parse(localStorage.getItem("prixTotal"))
     var prixPanier = document.getElementById('affichageTotal')
 
     let tableauPanier = document.getElementById("afficheProduitPanier")
-    
+
     // Affichage du prix total du panier si :===================================================================
     if (prixTotal != null) {
         prixPanier.textContent = 'Le montant de votre commande est de : ' + prixTotal +  ' €';
-        prixPanier.id = 'prixTotal'; 
+        prixPanier.id = 'prixTotal';
         var div = document.createElement("div")
         div.textContent = "Le panier est vide !"
         afficheProduitPanier.appendChild(div)
@@ -137,7 +131,7 @@ function affichagePanier() {
         Object.values(panier).map( (camera) => {
             var tr = document.createElement("tr")
             afficheProduitPanier.appendChild(tr)
-            
+
             var name = document.createElement("td")
             name.textContent = camera.name
             tr.appendChild(name)
