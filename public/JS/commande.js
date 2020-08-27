@@ -1,4 +1,4 @@
-// Récapitulatif de commande
+// Récapitulatif de commande ===============================================================================================
 function commande(){
     let data = JSON.parse(localStorage.getItem('order'));
     let prix = JSON.parse(localStorage.getItem('prix'));

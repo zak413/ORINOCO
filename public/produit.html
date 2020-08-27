@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="fr">
- 
- 
+
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://kit.fontawesome.com/605b623e9f.js" crossorigin="anonymous"></script>
-		<script defer src="produit.js"></script>
+		<script defer src="JS/produit.js"></script>
 		<title>Produit</title>
 	</head>
-  
-  
+
+
   	<body>
   	<div id="container">
 		<header>
@@ -36,6 +36,7 @@
 								<thead>
 									<tr>
 									  <th scope="col">Article</th>
+									  <th scope="col">lentille</th>
 									  <th scope="col">Quantité</th>
 									</tr>
 								</thead>
@@ -57,28 +58,33 @@
 				</div>
 			</nav>
 		</header>
-		<main id=produit>
-			<section id="camera">
+			<main id=produit><!-- Construction du squelette de la page pour remplissage en JS -->
+        	<section id="camera">
 				<h2 id="titre"></h2>
-				<img id="image" src="" alt="">
+				<img  id= "image" src="" alt="">
 				<h3 id="prix"></h3>
 				<p id="description"></p>
 				<label for="select"></label>
-				<select class="custom-select" id="nombreProduit">
-					<option selected>Nombre d'article</option>
+				<select class="custom-select" name="lens" id="lense-select">
+					
+				</select>
+				<label for="select"></label>
+				<select class="custom-select" name="number" id="nombreProduit">
+					<option selected>Nombre d'article :</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
 					<option value="5">5</option>
 				</select>
-				<button id="btn-ajouter" class="btn btn-outline-primary"></button>
+				<img  id= "image" src="" alt="">
+       			<button id="btn-ajouter" class="btn btn-outline-primary"></button>
 				<button id="btn-accueil" class="btn btn-outline-primary"></button>
-			</section>
+        	</section>
 		</main>
 		</div>
-  
-		<footer>				
+
+		<footer>
 			<div class="row row-no-gutters social">
 				<div class="col-sm-6 image">
 					<img src="/images/logoOrinoco.png" alt="logo orinoco">
@@ -93,13 +99,13 @@
 				</div>
 			</div>
 		</footer>
-		
-		
+
+
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   	</body>
-  
-  
-  
+
+
+
 </html>

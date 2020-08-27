@@ -154,7 +154,7 @@ body {
 	
 }
 
-@media (min-width: 747px) and (max-width: 1024px) {
+@media (min-width: 747px) and (max-width: 1190px) {
 	
 	#page {
 		display: flex;

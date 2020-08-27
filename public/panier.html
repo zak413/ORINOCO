@@ -6,9 +6,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://kit.fontawesome.com/605b623e9f.js" crossorigin="anonymous"></script>
-		<script defer src="panier.js"></script>
+		<script defer src="JS/panier.js"></script>
 		<title>Panier</title>
 	</head>
 
@@ -29,14 +29,17 @@
 					<tr>
 					  <th scope="col">Article</th>
 					  <th scope="col">Quantité</th>
+					  <th scope="col">lentille</th>
 					  <th scope="col">Prix</th>
+					  <th scope="col">Supprimer</th>
 					</tr>
 				</thead>
            		<tbody id="afficheProduitPanier">
-                    <!-- Partie panier pour l'affichage -->
+                    <!-- Partie pour l'affichage des produits ajoutés-->
                 </tbody>
             </table>
-            <div id="affichageTotal">
+            <div id="affichageTotal"> 
+            	<!-- Partie pour afficher le prix total de la commande -->
 
             </div>
             <button id="viderPanier" class="btn btn-danger">Vider le panier</button>
