@@ -67,7 +67,7 @@ function affichageProduit() {
         ajouter_panier.textContent = "Ajouter au panier"
         ajouter_panier.addEventListener("click", function() {
             if(choixLentille != undefined && choixLentille != "0" && nombreProduit != undefined && nombreProduit != "Nombre d'article :"){
-                alert("Tu ajoute "+ nombreProduit + " " + camera.name +" "+ choixLentille + " au panier.")
+                alert("Tu ajoutes "+ nombreProduit + " " + camera.name +" "+ choixLentille + " au panier.")
                 console.log("Il ajoute "+ nombreProduit + " " + camera.name + choixLentille + " au panier.")
                 camera.lenses = choixLentille
                 camera.quantity = nombreProduit
@@ -114,56 +114,4 @@ function ajoutLocalStorage(){
     localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-// Fonction pour afficher mon produit======================================================================================================
-
-
-function affichagePanier() {
-    //je récupére mon produit dans local storage "panier"
-    var panier = JSON.parse(localStorage.getItem("panier"))
-    var prixTotal = JSON.parse(localStorage.getItem("prixTotal"))
-    var prixPanier = document.getElementById('affichageTotal')
-
-    let tableauPanier = document.getElementById("afficheProduitPanier")
-    
-    // affichage du prix total du panier si le panier
-    if (prixTotal != null) {
-        prixPanier.textContent = 'Le montant de votre commande est de : ' + prixTotal +  ' €';
-        prixPanier.id = 'prixTotal'; 
-    } else  {
-        prixPanier.textContent = 'Le montant de votre commande est de : 0 €';
-    }
-
-    // si il n'y a rien dans le panier, affiche "Le panier est vide !"
-    if ( panier == null) {
-        var div = document.createElement("div")
-        div.textContent = "Le panier est vide !"
-        afficheProduitPanier.appendChild(div)
-        console.log("Le panier est vide !")
-    } else {
-        //s'il y a qq chose, creer un tableau avec chaque article
-        tableauPanier.innerHTML = ''
-        Object.values(panier).map( (camera) => {
-            var tr = document.createElement("tr")
-            afficheProduitPanier.appendChild(tr)
-            
-                var name = document.createElement("td")
-                name.textContent = camera.name
-                tr.appendChild(name)
-				
-				var lentille = document.createElement("td")
-				lentille.textContent = camera.lenses
-				tr.appendChild(lentille)
-
-
-                var quantite = document.createElement("td")
-                quantite.textContent = camera.quantity
-                tr.appendChild(quantite)
-			
-
-              console.log("Voici le panier :")
-              console.log(panier)
-        })
-    }
-}
-affichagePanier()  
 

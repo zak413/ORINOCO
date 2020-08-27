@@ -112,6 +112,17 @@ body {
 }
 
 
+.phrase {
+	width: 100%;
+}
+
+#total_price {
+	text-align: center;
+}
+
+
+
+
 @media screen and (max-width: 767px) {
 	#page {
 		display: flex;

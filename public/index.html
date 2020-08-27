@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://kit.fontawesome.com/605b623e9f.js" crossorigin="anonymous"></script>
 		<script defer src="JS/index.js"></script>
+		<script defer src="JS/cart.js"></script>
 		<title>Orinoco</title>
 	</head>
   
@@ -27,7 +28,7 @@
 					  <div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Mes articles</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						  <span aria-hidden="true"></span>
+						  <span aria-hidden="true">&times;</span>
 						</button>
 					  </div>
 					  <div class="modal-body">
@@ -36,19 +37,19 @@
 								<thead>
 									<tr>
 									  <th scope="col">Article</th>
-									  <th scope="col">lentille</th>
 									  <th scope="col">Quantité</th>
+									  <th scope="col">lentille</th>
+									  <th scope="col">Prix</th>
 									</tr>
 								</thead>
-								<tbody id="afficheProduitPanier">
+								<tbody id="affichePanierModal">
 									<!-- Partie panier pour l'affichage -->
 								</tbody>
 							</table>
-							<div id="affichageTotal">
-
-							</div>
 						</section>
+				  			
 					  </div>
+					  <div id="total_price"></div>
 					  <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 						<button type="button" class="btn btn-primary"><a href="panier.html">Aller dans le panier</a></button>
