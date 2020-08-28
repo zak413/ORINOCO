@@ -46,23 +46,22 @@ function affichagePanier() {
     }
 }
 affichagePanier()
-
-// Mise de l'objet en tableau
+// Mise de l'objet en tableau ================================================================================================
 var produits = JSON.parse(localStorage.getItem("panier"));
 if(produits != undefined){
-var array = Object.keys(produits)
+var produitsArray = Object.keys(produits)
     .map(function(key) {
         return produits[key];
     })
 } else {
-	array = 0
+	produitsArray = 0
 }
-console.log(array)
+console.log(produitsArray)
 
-// Calcul du montant total du panier
+// Calcul du montant total du panier ==========================================================================================
  let totalPrice = document.getElementById('total_price');
  let totalAmount = 0;
- for(let i = 0; i<array.length; i++){
-    totalAmount += array[i].price * array[i].quantity;
+ for(let i = 0; i<produitsArray.length; i++){
+    totalAmount += produitsArray[i].price * produitsArray[i].quantity;
  }
  totalPrice.innerText = `Le montant de votre commande est de : ` + `${totalAmount}` + ` €`;

@@ -9,59 +9,59 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://kit.fontawesome.com/605b623e9f.js" crossorigin="anonymous"></script>
 		<script defer src="JS/index.js"></script>
-		<script defer src="JS/cart.js"></script>
+		<script defer src="JS/panierModal.js"></script>
 		<title>Orinoco</title>
 	</head>
   
   
   	<body>
-  	<div id="container" >
-		<header>
-			<nav class="navbar navbar-light">
-				<a href="index.html"><img src="/images/logoOrinoco.png" alt="logo orinoco"></a>
-				<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Mon panier</button>
-				<!-- Button trigger modal -->
-				<!-- Modal pour affichage rapide du panier ---------------------------------------------------------------------------------->
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-					<div class="modal-content">
-					  <div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Mes articles</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						  <span aria-hidden="true">&times;</span>
-						</button>
-					  </div>
-					  <div class="modal-body">
-						<section id="tableauPanier">
-							<table class="table">
-								<thead>
-									<tr>
-									  <th scope="col">Article</th>
-									  <th scope="col">Quantité</th>
-									  <th scope="col">lentille</th>
-									  <th scope="col">Prix</th>
-									</tr>
-								</thead>
-								<tbody id="affichePanierModal">
-									<!-- Partie pour l'affichage du panier -->
-								</tbody>
-							</table>
-						</section>
-				  			
-					  </div>
-					  <div id="total_price"></div>
-					  <div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-						<button type="button" class="btn btn-primary"><a href="panier.html">Aller dans le panier</a></button>
+  		<div id="container" >
+			<header>
+				<nav class="navbar navbar-light">
+					<a href="index.html"><img src="/images/logoOrinoco.png" alt="logo orinoco"></a>
+					<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Mon panier</button>
+					<!-- Button trigger modal -->
+					<!-- Modal pour affichage rapide du panier ---------------------------------------------------------------------------------->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Mes articles</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body">
+							<section id="tableauPanier">
+								<table class="table">
+									<thead>
+										<tr>
+										  <th scope="col">Article</th>
+										  <th scope="col">Quantité</th>
+										  <th scope="col">lentille</th>
+										  <th scope="col">Prix</th>
+										</tr>
+									</thead>
+									<tbody id="affichePanierModal">
+										<!-- Partie pour l'affichage du panier -->
+									</tbody>
+								</table>
+							</section>
+
+						  </div>
+						  <div id="total_price"></div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+							<button type="button" class="btn btn-primary"><a href="panier.html">Aller dans le panier</a></button>
+						  </div>
+						</div>
 					  </div>
 					</div>
-				  </div>
-				</div>
-			</nav>
-		</header>
-		<main id=page> <!-- main vierge pour ajout de la page au fur et à mesure en JS -->
-			
-		</main>
+				</nav>
+			</header>
+			<main id=page> <!-- main vierge pour ajout de la page au fur et à mesure en JS -->
+
+			</main>
 		</div>
   
 		<footer>				

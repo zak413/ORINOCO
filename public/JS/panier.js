@@ -72,7 +72,7 @@ console.log(produitsArray)
 		localStorage.clear();
 		localStorage.setItem("panier", JSON.stringify(produitsArray));
 		document.location.reload(true); 
-	if(array.length < 1) {
+	if(produitsArray.length < 1) {
 		localStorage.clear();
 		document.location.reload(true);
 	} else {
@@ -141,13 +141,10 @@ function achat(e) {
   
 		products = Object.values(panier).map( (data) => {
 			let qte = parseInt(data.qte);
-			console.log(typeof qte);
-			console.log(qte);
     
 			for (let i = 0 ; i< qte ; i ++){
 				products.push(data._id);  
 			}
-			console.log(products); 
 			return products; 
 		});
  
@@ -185,34 +182,17 @@ let objet = {
 	};
 
 let achat = JSON.stringify(objet);
-if (prenom == ''){
-	alert("Prénom incorrect")
-	} else if (nom == ''){
-		alert("Nom incorrect")
-	} else if (email == ''){
-		alert("Email incorrect")
-	} else if (adresse == ''){
-		alert("Adresse incorrect")
-	} else if (ville == ''){
-		alert("Ville incorrect")
-		
-// si tout a été bien rempli, on envoi la commande au serveur, avec toutes les données ==========================================
-	} else {
-		let request = new XMLHttpRequest();
-		request.onreadystatechange = function () {
-			if (this.readyState == XMLHttpRequest.DONE) {
-				let confirmation = JSON.parse(this.responseText);
-				localStorage.setItem('order', JSON.stringify(confirmation));
-				let prix = JSON.parse(localStorage.getItem('prixTotal'));
-				localStorage.setItem('prix', JSON.stringify(prix));
-				console.log(typeof prix);
-				console.log( prix);
-				//Des que la requete est envoyé, on bascule sur la page de confirmation avec les différentes données : Id de commande, prix du panier
-				window.location.href = "commande.html";
-				}
-			}
-		request.open("post", "http://localhost:3000/api/cameras/order");
-		request.setRequestHeader("Content-Type", "application/json");
-		request.send(achat);
+
+let request = new XMLHttpRequest();
+request.onreadystatechange = function () {
+	if (this.readyState == XMLHttpRequest.DONE) {
+		let confirmation = JSON.parse(this.responseText);
+		localStorage.setItem('order', JSON.stringify(confirmation));
+		//Des que la requete est envoyé, on bascule sur la page de confirmation avec les différentes données : Id de commande, prix du panier
+		window.location.href = "commande.html";
 		}
-	} 
+		}
+request.open("post", "http://localhost:3000/api/cameras/order");
+request.setRequestHeader("Content-Type", "application/json");
+request.send(achat);
+	}
