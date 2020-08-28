@@ -139,12 +139,13 @@ body {
 	
 	#tableauPanier .table {
 		width: 100%;
+		font-size: 12px;
 	}
 	
 	#main {
 		height: auto;
 		width: 100%;
-		padding-bottom: 150px;
+		padding: 0px 5px 150px 5px;
 	}
 	
 	footer {
@@ -161,6 +162,22 @@ body {
 	
 	article {
 		margin: auto;
+	}
+	
+	tr {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.thPan {
+		padding: 5px !important;
+	}
+	.btn-suppProduct {
+		font-size: 12px;
+		padding: 3px 12px;
+		margin: 4px !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	
 }

@@ -6,7 +6,7 @@ const url = "http://localhost:3000/api/cameras"
 fetch(url)
     .then(response => response.json())
     .then(json =>{
-        console.log(json)
+        console.log(json) // on a un tableau avec les différents produits à l'intérieur====================================
         json.forEach(({_id, name, description, price, imageUrl}) =>{
             const article = document.createElement("article")
             const h2 = document.createElement("h2")
@@ -23,7 +23,10 @@ fetch(url)
             lien.href = 'produit.html?id=' + _id;
             lien.textContent = "voir le produit"
 
-
+// ====================== Pour chaque produit on créer une structure qu'on ajoute au fur et à mesure
+			
+			
+			
             main.appendChild (article)
 			article.appendChild (img)
             article.appendChild (h2)
@@ -36,7 +39,7 @@ fetch(url)
             p.appendChild(Description)
 
             lien.className = "btn btn-outline-primary"
-            //console.log(_id)
+            console.log(_id)
 
 			article.className = ("card")
         })

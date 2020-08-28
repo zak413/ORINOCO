@@ -1,9 +1,9 @@
-// je récupère l'id produit dans url grace à méthode URLSearchParams
+// je récupère l'id produit dans url avec URLSearchParams =======================================================
 let params = new URLSearchParams(document.location.search)
 let id = params.get("id")
 console.log("Il a selectionné " +id)
 
-//  affiche un seul produit dans la page
+//  afficher un seul produit dans la page ============================================================================
 
 let request = new XMLHttpRequest()
 request.onreadystatechange = function () {
@@ -20,6 +20,7 @@ function affichageProduit() {
 
     console.log("Le nom du produit est " +camera.name)
 
+	// On récupére notre structure html pour la remplir ensuite ====================================================================================
     const titre = document.getElementById("titre")
     titre.textContent = camera.name
     const prix = document.getElementById("prix")
@@ -29,40 +30,41 @@ function affichageProduit() {
     const image = document.getElementById("image")
     image.src = camera.imageUrl
 
-    //les options lentilles
-    const lentille = document.getElementById("lense-select")
-    const options = camera.lenses
-    options.forEach(function(element, lens) {
-        lentille[lens] = new Option(element, element)
-    })
-	var optionRef = new Option("Choix lentille :", "0", true, true)
-	lentille.appendChild(optionRef)
-
 	
-
 	
-    // Boutton retour à la page d'accueil =========================================================================================================
+	
+	    // Boutton retour à la page d'accueil (logo orinoco) =========================================================================================================
     const retour_accueil = document.getElementById("btn-accueil")
     retour_accueil.textContent = "Retour à l'accueil"
     retour_accueil.addEventListener("click", function() {
         window.location.href = "index.html"
     })
 
+	
+    //les options lentilles ==========================================================================================================================================
+    const lentille = document.getElementById("lense-select")
+    const options = camera.lenses
+    options.forEach(function(element, lens) {
+        lentille[lens] = new Option(element, element)
+    })
+	var optionRef = new Option("Choix lentille :", "0", true, true) // On ajoute une option indiquant le contenu du select qu'on laisse en valeur par défault
+	lentille.appendChild(optionRef)
 
+	
 
-    //selection de la lentille
+    //selection de la lentille ================================================================================================================================
     let choixLentille = document.getElementById("lense-select").addEventListener("change", function (e) {
         choixLentille = e.target.value;
         console.log("Il sélectionne la lentille : " + e.target.value);
     });
 
-    // Sélection du nombre de produit================================================================================================================
+    // Sélection du nombre de produit==========================================================================================================================
     let nombreProduit = document.getElementById("nombreProduit").addEventListener('change', function (e) {
         nombreProduit = e.target.value
         console.log("Il en veut :" + e.target.value)
     })
 
-    // Boutton ajouter au panier
+    // Boutton ajouter au panier ================================================================================================================================
    const ajouter_panier = document.getElementById("btn-ajouter")
         ajouter_panier.textContent = "Ajouter au panier"
         ajouter_panier.addEventListener("click", function() {
@@ -71,7 +73,6 @@ function affichageProduit() {
                 console.log("Il ajoute "+ nombreProduit + " " + camera.name + choixLentille + " au panier.")
                 camera.lenses = choixLentille
                 camera.quantity = nombreProduit
-                prixTotal()
                 ajoutLocalStorage()
 				document.location.reload(true);
             } else {
@@ -80,19 +81,8 @@ function affichageProduit() {
         })
 
 }
-// On enregistre le prix total dans local storage pour le proposer dans la page panier et commande=============================================
-function prixTotal(){
-    let price = parseInt(camera.price);
-    let prixDuPanier = JSON.parse(localStorage.getItem('prixTotal'));
-    
-    if(prixDuPanier != null){
-        localStorage.setItem("prixTotal", prixDuPanier + (price * camera.quantity));
-    } else {
-        localStorage.setItem("prixTotal", price * camera.quantity);
-    }
 
-}
-
+// On ajoute nos produits dans local storage ===============================================================================================================
 function ajoutLocalStorage(){
     let panier = localStorage.getItem('panier');
     panier = JSON.parse(panier);
