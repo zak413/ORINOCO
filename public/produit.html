@@ -53,7 +53,7 @@
 					  </div>
 					  <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-						<button type="button" class="btn btn-primary"><a href="panier.html">Aller dans le panier</a></button>
+						<button type="button" class="btn btn-primary" id="versPanier">Aller dans le panier</button>
 					  </div>
 					</div>
 				  </div>
@@ -63,14 +63,14 @@
 		<main id=produit><!-- Construction du squelette de la page pour remplissage en JS -->
         	<section id="camera">
 				<h2 id="titre"></h2>
-				<img  id= "image" src="" alt="">
+				<img  id= "image" src="#" alt="">
 				<h3 id="prix"></h3>
 				<p id="description"></p>
-				<label for="select"></label>
+				<label for="lense-select"></label>
 				<select class="custom-select" name="lens" id="lense-select"> <!-- Select pour y ajouter les différentes options pour la lentille -->
 					
 				</select>
-				<label for="select"></label>
+				<label for="nombreProduit"></label>
 				<select class="custom-select" name="number" id="nombreProduit">
 					<option selected>Nombre d'article :</option>
 					<option value="1">1</option>
@@ -79,7 +79,6 @@
 					<option value="4">4</option>
 					<option value="5">5</option>
 				</select>
-				<img  id= "image" src="" alt="">
        			<button id="btn-ajouter" class="btn btn-outline-primary"></button>
 				<button id="btn-accueil" class="btn btn-outline-primary"></button>
         	</section>

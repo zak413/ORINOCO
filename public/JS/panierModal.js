@@ -65,3 +65,10 @@ console.log(produitsArray)
     totalAmount += produitsArray[i].price * produitsArray[i].quantity;
  }
  totalPrice.innerText = `Le montant de votre commande est de : ` + `${totalAmount}` + ` €`;
+
+
+// Bouton permettant d'aller vers le panier ====================================================================================
+const allerPanier = document.getElementById("versPanier")
+    allerPanier.addEventListener("click", function() {
+        window.location.href = "panier.html"
+    })

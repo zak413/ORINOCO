@@ -49,6 +49,3 @@ fetch(url)
         console.error(e)
 })
 
-
-
-
