@@ -119,10 +119,24 @@ var formValid = document.querySelector('.commande');
 formValid.addEventListener ('click', function (e) {
 	let formulaire = document.getElementsByClassName("needs-validation")[0]
 	console.log(formulaire.checkValidity())
-	if(formulaire.checkValidity()) {
+	
+	let nom = document.getElementById("nom");
+	let prenom = document.getElementById("prenom");
+	let ville = document.getElementById("ville");
+	let adresse = document.getElementById("adresse");
+	let myRegex = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
+	console.log(myRegex.test(nom.value))
+	if(formulaire.checkValidity() == true && myRegex.test(nom.value) == true && myRegex.test(prenom.value) == true && myRegex.test(adresse.value) == true && myRegex.test(ville.value) == true ) {
 		achat(e)
+	} else {
+		alert("Veuillez remplir des informations correctes")
 	}
 	});
+
+
+
+
+
 
 function achat(e) {
 	e.preventDefault();
@@ -181,18 +195,21 @@ let objet = {
 	products
 	};
 
-let achat = JSON.stringify(objet);
+// On envoie la requête avec la méthode fetch ===================================
+let url = 'http://localhost:3000/api/cameras/order';
+fetch(url, {
+	method: "POST",
+	body: JSON.stringify(objet),
+	headers: {
+		"Content-Type" : "application/json"
+		},
+	})
+.then(res => res.json())
+.then(res =>{
+console.log(res);
+let commande = JSON.stringify(res)
+localStorage.setItem("order", commande);
+location.href = "commande.html";
+})
+};
 
-let request = new XMLHttpRequest();
-request.onreadystatechange = function () {
-	if (this.readyState == XMLHttpRequest.DONE) {
-		let confirmation = JSON.parse(this.responseText);
-		localStorage.setItem('order', JSON.stringify(confirmation));
-		//Des que la requete est envoyé, on bascule sur la page de confirmation avec les différentes données : Id de commande, prix du panier
-		window.location.href = "commande.html";
-		}
-		}
-request.open("post", "http://localhost:3000/api/cameras/order");
-request.setRequestHeader("Content-Type", "application/json");
-request.send(achat);
-	}
