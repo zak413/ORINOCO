@@ -123,10 +123,9 @@ formValid.addEventListener ('click', function (e) {
 	let nom = document.getElementById("nom");
 	let prenom = document.getElementById("prenom");
 	let ville = document.getElementById("ville");
-	let adresse = document.getElementById("adresse");
 	let myRegex = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
 	console.log(myRegex.test(nom.value))
-	if(formulaire.checkValidity() == true && myRegex.test(nom.value) == true && myRegex.test(prenom.value) == true && myRegex.test(adresse.value) == true && myRegex.test(ville.value) == true ) {
+	if(formulaire.checkValidity() == true && myRegex.test(nom.value) == true && myRegex.test(prenom.value) == true && myRegex.test(ville.value) == true ) {
 		achat(e)
 	} else {
 		alert("Veuillez remplir des informations correctes")
